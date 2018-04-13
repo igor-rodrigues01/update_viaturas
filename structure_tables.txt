@@ -1,0 +1,128 @@
+veiculos_all 45 e 58
+veiculos 58 - V
+veiculos_hist 45
+
+host='10.1.8.58', db='siscom', usr='ro', passwd='ro', schema='ibama',
+host_45='10.1.8.45', db_45='vehicles',usr_45='viaturas', passwd_45='viaturas@ib4m4!2017', schema_45='public'
+
+ insert into ibama.veiculos58("position", "date" , velocity , turned_on , car_id , plate) values (st_setSRID(ST_MakePoint(-71.1043443253471, 42.3150676015829), 4326), now(), 3232, 'Y', null, 'ABCABC');
+
+insert into ibama.veiculos_all58 values(1, 'Rua da china', 'Fortaleza', 'N', 'Jao', 'JJ', 'teste', 'Y', 'fff', '-71.1043443253471', '42.3150676015829', 'M', 'Model', '333', 'JAOZAO', 'ABCDEF', 'X', 'REF', 'aaadist' ,'DD' ,'ffff' ,'ggg' ,'AA' ,'asfasdf' ,'WW' ,'auu53534' ,'554' ,now() ,'bbb' ,'FF' ,'sdfsd' ,'II' ,'sfsd' ,now() ,'sdfsdf' ,'sasdfasdf' ,'sdfsda' ,'TYPE')
+
+insert into public.veiculos_all45 values(1, 'Rua do japão', 'Japão', 'N', 'ZE', 'JJ', 'ttt', 'Z', 'fff', '-60.1234323243371', '32.3150676015829', 'M', 'Model', '333', 'JAOZAO', 'ABCDEF', 'X', 'REF', 'aaadist' ,'DD' ,'ffff' ,'ggg' ,'AA' ,'asfasdf' ,'WW' ,'auu53534' ,'554' ,now() ,'bbb' ,'FF' ,'sdfsd' ,'II' ,'sddd' ,now() ,'sdfsdf' ,'sasdfasdf' ,'sdfsda' ,'TTPP')
+
+insert into public.veiculos_hist45("position", "date" , velocity , turned_on , car_id , plate) values (st_setSRID(ST_MakePoint(-61.1234234353471, 32.3150643433829), 4326), now(), 3000, 'Y', null, 'AAAAA');
+
+
+
+58 siscom 
+    CREATE TABLE ibama.veiculos58
+	(
+	  id serial NOT NULL,
+	  "position" geometry(Point,4326) NOT NULL,
+	  date timestamp with time zone NOT NULL,
+	  velocity integer NOT NULL,
+	  turned_on boolean NOT NULL,
+	  car_id integer,
+	  plate text NOT NULL,
+	  CONSTRAINT veiculos_pkey PRIMARY KEY (id)
+	)
+
+	CREATE TABLE ibama.veiculos_all58
+	(
+	  id serial NOT NULL,
+	  addr text,
+	  city text,
+	  course character varying(4),
+	  driver text,
+	  drivermgmt character varying(2),
+	  fleet text,
+	  ign character varying(2),
+	  "interval" text,
+	  lat text,
+	  lng text,
+	  mcnum text,
+	  model text,
+	  odo text,
+	  owner text,
+	  plate text,
+	  pwrsrc character varying(2),
+	  ref text,
+	  refdist text,
+	  satfail character varying(2),
+	  serial text,
+	  serialsat text,
+	  sigloss character varying(2),
+	  speed text,
+	  st character varying(4),
+	  swver text,
+	  cplan text,
+	  stime timestamp without time zone,
+	  tbat text,
+	  tbatcg character varying(2),
+	  tbatpc text,
+	  tstatus character varying(2),
+	  tstatusdesc text,
+	  ttime timestamp without time zone,
+	  vbat text,
+	  vname text,
+	  vplan text,
+	  vtype character varying(4),
+	  CONSTRAINT veiculos_all_pkey PRIMARY KEY (id)
+	)
+
+45 vehicles
+
+	CREATE TABLE public.veiculos_all45
+	(
+	  id serial NOT NULL,
+	  addr text,
+	  city text,
+	  course character varying(4),
+	  driver text,
+	  drivermgmt character varying(2),
+	  fleet text,
+	  ign character varying(2),
+	  "interval" text,
+	  lat text,
+	  lng text,
+	  mcnum text,
+	  model text,
+	  odo text,
+	  owner text,
+	  plate text,
+	  pwrsrc character varying(2),
+	  ref text,
+	  refdist text,
+	  satfail character varying(2),
+	  serial text,
+	  serialsat text,
+	  sigloss character varying(2),
+	  speed text,
+	  st character varying(4),
+	  swver text,
+	  cplan text,
+	  stime timestamp without time zone,
+	  tbat text,
+	  tbatcg character varying(2),
+	  tbatpc text,
+	  tstatus character varying(2),
+	  tstatusdesc text,
+	  ttime timestamp without time zone,
+	  vbat text,
+	  vname text,
+	  vplan text,
+	  vtype character varying(4),
+	  CONSTRAINT veiculos_all_pkey PRIMARY KEY (id)
+	)
+
+	CREATE TABLE public.veiculos_hist45
+	(
+	  id serial NOT NULL,
+	  "position" geometry(Point,4326) NOT NULL,
+	  date timestamp with time zone NOT NULL,
+	  velocity integer NOT NULL,
+	  turned_on boolean NOT NULL,
+	  car_id integer,
+	  plate text
+	)
