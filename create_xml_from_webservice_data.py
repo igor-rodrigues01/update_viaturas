@@ -53,7 +53,7 @@ class CreateXMLFromWebserviceData:
         for plate in plates_list:
             message = self.__make_message_to_get_one_vehicle(plate)
             ws_returned_xml = self.__get_data_from_webservice(message)
-            file_xml = open('{}-historic.xml'.format(plate), 'w');
+            file_xml = open('viaturas_recover/{}-historic.xml'.format(plate), 'w');
             file_xml.write(ws_returned_xml)
             file_xml.close()
 
@@ -75,12 +75,10 @@ class CreateXMLFromWebserviceData:
                     plates_list.append(value)
         return plates_list
 
-    @staticmethod
-    def main():
-        self = CreateXMLFromWebserviceData()
+    def main(self):
         plates_list = self.__get_all_plates()
         self.__get_historic_of_one_vehicle(plates_list)
 
 
 if __name__ == '__main__':
-    CreateXMLFromWebserviceData.main()
+    CreateXMLFromWebserviceData().main()
